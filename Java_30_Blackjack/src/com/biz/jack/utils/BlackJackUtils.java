@@ -1,4 +1,4 @@
-package com.biz.jack.Utils;
+package com.biz.jack.utils;
 
 public class BlackJackUtils {
 	

@@ -35,7 +35,7 @@ public class PaperMakeServiceV1 {
 			// pay 에 포함된 paper의 매수
 			int paperCount = (int)(pay / paper);
 			
-			// 최조 pay에서 액면가를 계산한 후 
+			// 최초 pay에서 액면가를 계산한 후 
 			// 액면가 금액만큼을 삭제해서
 			// 이후 액면가 매수를 계산하도록 수행
 			pay -= (paper * paperCount);
