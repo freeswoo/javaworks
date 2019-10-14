@@ -9,6 +9,10 @@ import java.util.List;
 
 import com.biz.lombok.domain.StudentVO;
 
+import lombok.Getter;
+
+@Getter
+
 public class StudentReadServiceV1 {
 
 	private List<StudentVO> stdList;
@@ -26,10 +30,8 @@ public class StudentReadServiceV1 {
 		FileReader fileReader = new FileReader(FileName);
 		BufferedReader buffer = new BufferedReader(fileReader);
 		String reader = new String();
-		int lineNum = 0;
+		
 		while(true) {
-			
-			System.out.println(++lineNum);
 			reader = buffer.readLine();
 			if(reader == null) break;
 						
@@ -44,5 +46,7 @@ public class StudentReadServiceV1 {
 			
 			stdList.add(stdVO);
 		}
+		buffer.close();
+		fileReader.close();
 	}
 }

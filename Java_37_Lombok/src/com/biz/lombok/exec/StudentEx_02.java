@@ -1,5 +1,10 @@
 package com.biz.lombok.exec;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
+
+import com.biz.lombok.domain.StudentVO;
 import com.biz.lombok.service.StudentReadServiceV1;
 import com.biz.lombok.service.StudentViewServiceABS;
 import com.biz.lombok.service.StudentViewServiceV1;
@@ -21,7 +26,51 @@ public class StudentEx_02 {
 		
 		String studentFile = "src/com/biz/lombok/학생정보.txt";
 		
+		Scanner scan = new Scanner(System.in);
+		
+		try {
+			sRead.readStudent(studentFile);
+			List<StudentVO> stdList = sRead.getStdList();
+			sView.setStdList(stdList);
+			sView.view();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			while(true) {
+				System.out.println("========================");
+				System.out.println("검색메뉴");
+				System.out.println("========================");
+				System.out.println("1.이름검색  2.학년검색  3.학년검색(범위지정) 4.종료");
+				System.out.println("========================");
+				System.out.print("검색방법을 선택하세요 >> ");
+				int menu = Integer.valueOf(scan.nextLine());
+				
+				if(menu == 4) break;
+				if(menu == 1) {
+					System.out.print("찾는 이름은? ");
+					String strName = scan.nextLine();
+					sView.view(strName);
+				}
+				if(menu == 2) {
+					System.out.print("찾는 학년은? ");
+					int intGrade = Integer.valueOf(scan.nextLine());
+					sView.view(intGrade);
+				}
+				if(menu == 3) {
+					System.out.print("최저 학년? ");
+					int grGrade = Integer.valueOf(scan.nextLine());
+					System.out.print("최고 학년? ");
+					int lessGrade = Integer.valueOf(scan.nextLine());
+					sView.view(grGrade, lessGrade);
+				} 
+			}
+		} catch (Exception e) {
+			System.out.println("메뉴안의 숫자만 입력 가능");
+			
+		}
+		System.out.println("업무종료");
 		
 	}
-
 }
