@@ -27,15 +27,6 @@ public class BBsEx_01 {
 			List<BBsVO> bbsList = bbsRead.getBBsList();
 			bbsView.setBBsList(bbsList);
 			
-			System.out.println("==============================");
-			System.out.println("게시판 관리 시스템 v1");
-			System.out.println("==============================");
-			System.out.println("1.전체  2.작성자  3.날짜  0.종료");
-			
-			
-			
-			
-			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +34,40 @@ public class BBsEx_01 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		try {
+			while(true) {
+				System.out.println("==============================");
+				System.out.println("게시판 관리 시스템 v1");
+				System.out.println("==============================");
+				System.out.println("1.전체  2.작성자  3.날짜  0.종료");
+				System.out.println("==============================");
+				System.out.print("업무선택 >> ");
+				int menu = Integer.valueOf(scan.nextLine());
+				if(menu == 0) break;
+				if(menu == 1) {
+					bbsView.viewBBS();
+				}
+				if(menu == 2) {
+					System.out.print("검색할 작성자 명을 입력하세요 >> ");
+					String subject = scan.nextLine();
+					bbsView.viewBBS(subject);
+				}
+				if(menu == 3) {
+					System.out.println("시작날짜 입력 >> ");
+					int sDate = Integer.valueOf(scan.nextLine());
+					System.out.println("끝 날짜 입력 >> ");
+					int eDate = Integer.valueOf(scan.nextLine());
+					bbsView.viewBBS(sDate, eDate);
+				}
+				
+
+			}
+
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+				
 		
 		
 	}
