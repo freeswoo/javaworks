@@ -36,11 +36,11 @@ public class BBsEx_01 {
 		}
 		try {
 			while(true) {
-				System.out.println("==============================");
-				System.out.println("게시판 관리 시스템 v1");
-				System.out.println("==============================");
+				System.out.println("================================");
+				System.out.println("     게시판 관리 시스템 v1");
+				System.out.println("================================");
 				System.out.println("1.전체  2.작성자  3.날짜  0.종료");
-				System.out.println("==============================");
+				System.out.println("================================");
 				System.out.print("업무선택 >> ");
 				int menu = Integer.valueOf(scan.nextLine());
 				if(menu == 0) break;
@@ -49,8 +49,8 @@ public class BBsEx_01 {
 				}
 				if(menu == 2) {
 					System.out.print("검색할 작성자 명을 입력하세요 >> ");
-					String subject = scan.nextLine();
-					bbsView.viewBBS(subject);
+					String auth = scan.nextLine();
+					bbsView.viewBBS(auth);
 				}
 				if(menu == 3) {
 					System.out.println("시작날짜 입력 >> ");

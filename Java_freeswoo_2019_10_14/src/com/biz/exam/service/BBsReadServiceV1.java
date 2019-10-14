@@ -42,7 +42,7 @@ public class BBsReadServiceV1 implements BBsReadService {
 	@Override
 	public List<BBsVO> getBBsList() {
 		
-		return null;
+		return bbsList;
 	}
 
 }

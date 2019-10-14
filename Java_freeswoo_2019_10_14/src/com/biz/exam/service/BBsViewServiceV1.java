@@ -1,5 +1,6 @@
 package com.biz.exam.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.biz.exam.domain.BBsVO;
@@ -15,12 +16,12 @@ public class BBsViewServiceV1 implements BBsViewService {
 
 	public void title() {
 		
-		System.out.println("==========================");
-		System.out.println("전체 리스트");
-		System.out.println("==========================");
-		System.out.println("=================================");
+		System.out.println("=================");
+		System.out.println("   전체 리스트");
+		System.out.println("=================");
+		System.out.println("==================================================================");
 		System.out.println("순번\t작성자\t작성일자\t제목\t내용\t조회수");
-		System.out.println("=================================");
+		System.out.println("==================================================================");
 	}
 	
 	public void body(BBsVO vo) {
@@ -40,20 +41,20 @@ public class BBsViewServiceV1 implements BBsViewService {
 		for(BBsVO vo : bbsList) {
 			this.body(vo);
 		}
-		System.out.println("================================");
+		System.out.println("=================================================================");
 
 	}
 
 	@Override
-	public void viewBBS(String subject) {
+	public void viewBBS(String auth) {
 
 		this.title();
 		for(BBsVO vo : bbsList) {
-			if(vo.getSubject().contains(subject)) {
+			if(vo.getSubject().contains(auth)) {
 				this.body(vo);
 			}
 		}
-		System.out.println("================================");
+		System.out.println("=================================================================");
 		
 	}
 
@@ -67,7 +68,7 @@ public class BBsViewServiceV1 implements BBsViewService {
 				this.body(vo);
 			}
 		}
-		System.out.println("================================");
+		System.out.println("=================================================================");
 		
 	}
 
@@ -75,8 +76,10 @@ public class BBsViewServiceV1 implements BBsViewService {
 	public void viewBBS(boolean sort) {
 
 		this.title();
-		for(BBsVO vo : bbsList) {
-			if(
+		
+		while(sort) {
+			
+			Collections.sort(bbsList);
 		}
 		
 	}
