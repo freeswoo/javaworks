@@ -1,5 +1,6 @@
 package com.biz.exam.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -76,10 +77,11 @@ public class BBsViewServiceV1 implements BBsViewService {
 	public void viewBBS(boolean sort) {
 
 		this.title();
-		
+		System.out.println(bbsList);
 		while(sort) {
 			
-			Collections.sort(bbsList);
+			//Collections.sort(bbsList);
+			
 		}
 		
 	}

@@ -26,7 +26,7 @@ public class BBsEx_01 {
 			bbsRead.readBBS(bbsFile);
 			List<BBsVO> bbsList = bbsRead.getBBsList();
 			bbsView.setBBsList(bbsList);
-			
+			bbsView.viewBBS(true);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
